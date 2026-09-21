@@ -1,5 +1,5 @@
 """
-Python Programming 26AU W04L
+Program's Name: Lab8_Jluna7-1.py
 Author: Jose Luna
 Purpose:This program calculates the check digit for a UPC code and verifies if the provided UPC is valid.
 Resources: Written from scratch. UPC-A algorithm reference: https://en.wikipedia.org/wiki/Universal_Product_Code
