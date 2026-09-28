@@ -8,7 +8,7 @@ Date: 9/27/2026
 import random
 
 class Coin:
-    """Represents a single coin that can be tossed to show either "Heads" or "Tails"."""
+    """Represents a single coin that can be flipped to show either "Heads" or "Tails"."""
 
     def __init__(self):
         """Initialize the coin with a starting value of "Heads"."""
@@ -25,8 +25,3 @@ class Coin:
     def get_sideup(self):
         """Return the current side of the coin that is facing up."""
         return self.__sideup
-
-test_coin = Coin()
-for i in range(5):
-    test_coin.toss()
-    print(test_coin.get_sideup())
