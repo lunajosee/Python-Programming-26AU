@@ -34,3 +34,48 @@ class WordAnalyzer:
         except FileNotFoundError:
             print("File not found:", self.__filepath.name)
             return False
+
+    def print_report(self):
+        words = sorted(self.__frequencies.keys())
+
+        for word in words:
+            print(f"{word:<20} :: {self.__frequencies[word]}")
+
+def main():
+    folder = pathlib.Path(__file__).resolve().parent
+
+    files = {
+        "1": folder / "monte_cristo.txt",
+        "2": folder / "treasure_island.txt",
+        "3": folder / "tarzan.txt",
+        "4": folder / "princess_mars.txt",
+    }
+
+    while True:
+        print("\n--- Word Analyzer ---")
+        print("Please select a file to analyze:")
+
+        for number, filepath in files.items():
+            name = filepath.stem.replace("_", " ").title()
+            print(f"  {number}. {name}")
+
+        print("5. Exit")
+        choice = input("\nEnter your choice (1-5): ").strip()
+
+        if choice == "5":
+            print("Exiting the program.")
+            break
+
+        if choice not in files:
+            print("Invalid choice. Please try select from 1-5.")
+        else:
+            filepath =files[choice]
+            print("Processing:", filepath.name)
+            analyzer = WordAnalyzer(filepath)
+            if analyzer.process_file():
+                analyzer.print_report()
+
+            input("\nPress Enter to return to the menu...")
+
+if __name__ == "__main__":
+    main()
